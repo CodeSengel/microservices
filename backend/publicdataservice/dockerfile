@@ -1,0 +1,24 @@
+# Utilisation de l'image Node.js version 14 comme base
+FROM node:14
+
+# Définition du répertoire de travail dans le conteneur
+WORKDIR /
+
+# Copie des fichiers package.json et package-lock.json pour installer les dépendances
+COPY package*.json ./
+
+# Installation des dépendances
+RUN npm install
+RUN npm install cors
+RUN npm install axios
+RUN npm install dotenv
+RUN npm install @supabase/supabase-js
+
+# Copie du reste des fichiers de l'application
+COPY . .
+
+# Exposition du port sur lequel le service sera accessible
+EXPOSE 3003
+
+# Commande pour démarrer l'application
+CMD ["node", "src/app.js"]

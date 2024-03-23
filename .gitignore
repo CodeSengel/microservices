@@ -1,0 +1,25 @@
+# Ignore les dossiers node_modules générés par npm
+node_modules/
+
+# Ignore les fichiers de verrouillage de package générés par npm
+package-lock.json
+
+# Ignore les fichiers de configuration spécifiques à l'environnement
+.env
+
+# Ignore les fichiers de build frontend générés
+frontend/dist/
+
+# Ignore les fichiers de dépendances installées pour les services backend
+backend/authservice/node_modules/
+backend/publicdataservice/node_modules/
+
+# Ignore les fichiers de build ou de dépendances générés pour les services backend
+backend/authservice/package-lock.json
+backend/publicdataservice/package-lock.json
+
+# Ignore les fichiers de dépendances installées pour le gateway
+gateway/node_modules/
+
+# Ignore les fichiers de verrouillage de package générés pour le gateway
+gateway/package-lock.json

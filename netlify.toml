@@ -1,0 +1,27 @@
+# Configuration pour le déploiement sur Netlify
+
+# Version de la configuration Netlify
+[build]
+  command = "docker-compose up --build"
+  publish = "frontend/dist" # Spécifiez le répertoire de build de votre application frontend
+
+# Spécifiez les services Docker à déployer
+[context.production.environment]
+  DOCKER_COMPOSE_VERSION = "3.8"
+  AUTHSERVICE_PORT = "3002"
+  PUBLICDATA_PORT = "3003"
+  GATEWAY_PORT = "3001"
+
+[context.deploy-preview.environment]
+  DOCKER_COMPOSE_VERSION = "3.8"
+  AUTHSERVICE_PORT = "3002"
+  PUBLICDATA_PORT = "3003"
+  GATEWAY_PORT = "3001"
+
+# Spécifiez les variables d'environnement supplémentaires nécessaires pour votre application
+[build.environment]
+  NETLIFY = "true"
+  FRONTEND_URL = "http://localhost:8080"
+  URL_SUPABASE = "https://afytnfdmrixbxkuylsfg.supabase.co"
+  CLE_API_SUPABASE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmeXRuZmRtcml4YnhrdXlsc2ZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAxMTM5NzUsImV4cCI6MjAyNTY4OTk3NX0.JwaR_cmf52d27jDjMDRB6r9xpBhKMOkJxJpqmsfXKlk"
+  TAB_PLATFORM_LIST_NAME = "platform_available_list"
